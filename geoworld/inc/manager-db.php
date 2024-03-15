@@ -74,3 +74,17 @@ function getCapitale($id)
     $query = "SELECT Name FROM City WHERE City.id = $id" ;
     return $pdo->query($query)->fetch()->Name;
 }
+
+function getSuperficie()
+{
+    global $pdo;
+    $query = 'SELECT SurfaceArea FROM Country';
+    return $pdo->query($query)->fectch();
+}
+
+function getEsperanceVie()
+{
+    global $pdo;
+    $query = 'SELECT LifeExpectancy FROM Country';
+    return $pdo->query($query)->fectch();
+}

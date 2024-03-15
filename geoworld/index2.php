@@ -32,8 +32,11 @@ $desPays = getCountriesByContinent($continent);
     <div>
      <table class="table">
          <tr>
+           <th>Drapeau</th>
            <th>Nom</th>
            <th>Population</th>
+           <th>Espérance de vie</th>
+           <th>Superficie</th>
            <th>Capitale</th>
          </tr>
        <?php
@@ -41,8 +44,11 @@ $desPays = getCountriesByContinent($continent);
        // des caractéristiques d'un pays (en relation avec les colonnes de la table Country)
           foreach ($desPays as $pays): ?>
           <tr>
+            <td><img src = "./images/drapeau/<?php if (empty($pays->Code2)) echo strlower($pays->Code2); else echo "Pas de drapeau"; ?>.png">
             <td><?php echo $pays->Name ?></td>
             <td><?php echo $pays->Population ?></td>
+            <td><?php echo $pays->LifeExpectancy ?></td>
+            <td><?php echo $pays->SurfaceArea, " km" ?></td> 
             <td><?php if(empty($pays->Capital) == True) echo "Pas de capitale"; else echo getCapitale($pays->Capital) ?></td>
           </tr>
           <?php endforeach; ?>
